@@ -128,8 +128,8 @@ boolean MCP2515::initCAN(int baudConst)
   if(mode != 0b100)
     return false;
 
-    // Enable receive all msg
-    writeReg(RXB0CTRL, (1<< RXM1)|(1 << RXM0));
+  // Enable receive all msg
+  writeReg(RXB0CTRL, (1<< RXM1)|(1 << RXM0));
 
   // Clear mask filter
   clearRX0Mask();
@@ -198,7 +198,7 @@ boolean MCP2515::setCANBaud(int baudConst)
 		break;
     case 1000:
     default:
-        cnf1 = 0x80;
+        	cnf1 = 0x80;
 		cnf2 = 0x90;
 		cnf3 = 0x02;
   }
