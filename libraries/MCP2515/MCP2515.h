@@ -1,13 +1,13 @@
 /*
   MCP2515.h - CAN library
   Written by Frank Kienast in November, 2010
-  
+
   Connections to MCP2515:
   Arduino  MCP2515
   11       MOSI
   12       MISO
   13       SCK
-  10       CS 
+  10       CS
 
 */
 
@@ -41,20 +41,22 @@ class MCP2515
 	static byte getCANTxErrCnt();
 	static byte getCANRxErrCnt();
 	static long queryOBD(byte code);
-	
+
 	private:
 	static boolean setCANBaud(int baudConst);
 	static void writeReg(byte regno, byte val);
 	static void writeRegBit(byte regno, byte bitno, byte val);
 	static byte readReg(byte regno);
+	static void clearRX0Mask(void);
 };
 
 //Data rate selection constants
-#define CAN_BAUD_10K 1
-#define CAN_BAUD_50K 2
-#define CAN_BAUD_100K 3
-#define CAN_BAUD_125K 4
-#define CAN_BAUD_250K 5
-#define CAN_BAUD_500K 6
+#define CAN_BAUD_10K    10
+#define CAN_BAUD_50K    50
+#define CAN_BAUD_100K   100
+#define CAN_BAUD_125K   125
+#define CAN_BAUD_250K   250
+#define CAN_BAUD_500K   500
+#define CAN_BAUD_1M     1000
 
 #endif
